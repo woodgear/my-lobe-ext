@@ -1,0 +1,48 @@
+{
+  "$schema": "../node_modules/@lobehub/chat-plugin-sdk/schema.json",
+  "api": [
+    {
+      "url": "http://localhost:3400/api/currentTime",
+      "name": "currentTime",
+      "description": "获取当前时间",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "description": "是否开始获取时间"
+          }
+        }
+      }
+    },
+    {
+      "url": "http://localhost:3400/api/currentState",
+      "name": "currentState",
+      "description": "获取今天的笔记",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "description": "是否开始获取"
+          }
+        }
+      }
+    }
+  ],
+  "author": "cong",
+  "createdAt": "2025-04-07",
+  "gateway": "http://localhost:3400/api/gateway",
+  "identifier": "cong-zhouzhou",
+  "meta": {
+    "avatar": "🚀",
+    "tags": ["zhouzhou"],
+    "title": "zhouzhou-ext",
+    "description": ""
+  },
+  "ui": {
+    "url": "http://localhost:3400",
+    "height": 200
+  },
+  "version": "1"
+}
