@@ -12,7 +12,10 @@ import (
 func main() {
 	http.HandleFunc("/api/gateway", gatewayHandler(APIHandlers{
 		"currentTime":  wrap(calls.HandleCurrentTime),
-		"currentState": wrap(calls.HandleCurrentState),
+		"readNote":     wrap(calls.HandleReadNote),
+		"writeZZ":      wrap(calls.HandleWriteZZ),
+		"readZZ":       wrap(calls.HandleReadZZ),
+		"listZZ":       wrap(calls.HandleListZZ),
 	}))
 	http.HandleFunc("/manifest-dev.json", func(w http.ResponseWriter, r *http.Request) {
 		setCORSHeaders(w)

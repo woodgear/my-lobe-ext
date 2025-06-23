@@ -1,48 +1,100 @@
 {
-  "$schema": "../node_modules/@lobehub/chat-plugin-sdk/schema.json",
-  "api": [
-    {
-      "url": "http://localhost:3400/api/currentTime",
-      "name": "currentTime",
-      "description": "获取当前时间",
-      "parameters": {
-        "type": "object",
-        "properties": {
-          "ok": {
-            "type": "boolean",
-            "description": "是否开始获取时间"
-          }
+    "$schema": "../node_modules/@lobehub/chat-plugin-sdk/schema.json",
+    "api": [
+        {
+            "url": "http://localhost:3400/api/currentTime",
+            "name": "currentTime",
+            "description": "获取当前时间",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "ok": {
+                        "type": "boolean",
+                        "description": "是否开始获取时间"
+                    }
+                }
+            }
+        },
+        {
+            "url": "http://localhost:3400/api/readNote",
+            "name": "readNote",
+            "description": "获取note",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "noteName": {
+                        "type": "string",
+                        "description": "笔记名称,日记的名字为形如2025_06_23,日记和笔记中可能有[[xx]]的内容,这代表是xx是一个笔记"
+                    },
+                    "todayJournal": {
+                        "type": "boolean",
+                        "description": "如为true,则直接获取今天的日记"
+                    }
+                }
+            }
+        },
+        {
+            "url": "http://localhost:3400/api/writeZZ",
+            "name": "writeZZ",
+            "description": "周周自己的记事本",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "路径, 格式为 今天的日期/文件名"
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "内容"
+                    }
+                }
+            }
+        },
+        {
+            "url": "http://localhost:3400/api/readZZ",
+            "name": "readZZ",
+            "description": "读取周周自己的记事本",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "paths": {
+                        "type": "array",
+                        "description": "路径, 格式为 记事本的日期/文件名,可以同时读取多个文件"
+                    }
+                }
+            }
+        },
+        {
+            "url": "http://localhost:3400/api/listZZ",
+            "name": "listZZ",
+            "description": "列出周周自己的记事本,注意和文件夹同名的文件是那天的聊天记录,同时显示了文件的大小",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "ok": {
+                        "type": "boolean",
+                        "description": "是否开始列出"
+                    }
+                }
+            }
         }
-      }
+    ],
+    "author": "cong",
+    "createdAt": "2025-04-07",
+    "gateway": "http://localhost:3400/api/gateway",
+    "identifier": "cong-zhouzhou",
+    "meta": {
+        "avatar": "🚀",
+        "tags": [
+            "zhouzhou"
+        ],
+        "title": "zhouzhou-ext",
+        "description": ""
     },
-    {
-      "url": "http://localhost:3400/api/currentState",
-      "name": "currentState",
-      "description": "获取今天的笔记",
-      "parameters": {
-        "type": "object",
-        "properties": {
-          "ok": {
-            "type": "boolean",
-            "description": "是否开始获取"
-          }
-        }
-      }
-    }
-  ],
-  "author": "cong",
-  "createdAt": "2025-04-07",
-  "gateway": "http://localhost:3400/api/gateway",
-  "identifier": "cong-zhouzhou",
-  "meta": {
-    "avatar": "🚀",
-    "tags": ["zhouzhou"],
-    "title": "zhouzhou-ext",
-    "description": ""
-  },
-  "ui": {
-    "url": "http://localhost:3400",
-    "height": 200
-  },
-  "version": "1"
+    "ui": {
+        "url": "http://localhost:3400",
+        "height": 200
+    },
+    "version": "1"
 }
